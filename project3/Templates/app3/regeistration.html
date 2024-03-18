@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "app3/base.html" %}
+{%load static%}
+{%block content%}
+<div class="jumbotron">
+    {%if registered%}
+        <h1>Thank you for regeistering!</h1>
+    {%else%}
+    <h1>Django Level regeistration Page</h1>
+    <h1>Fill Out the Form:</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token%}
+        {{user_form.as_p}}
+        {{profile_form.as_p}}
+        <input type="submit" name=" "  value="Register">
+    </form>
+    {%endif%}
+
+</div>
+{%endblock%}
